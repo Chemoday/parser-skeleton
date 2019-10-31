@@ -1,11 +1,17 @@
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium import webdriver
 
+
+
 import utils
 
 
 class Config:
-    chromeOptions = webdriver.ChromeOptions()
+    # chrome_path = 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'
+    chrome_path = 'C:\selenium_drivers\chromedriver.exe'
+    firefox_path = 'C:\selenium_drivers\geckodriver.exe'
+    # firefox_path = 'C:\Program Files (x86)\Mozilla Firefox\\firefox.exe'
+
     prefs = {"profile.managed_default_content_settings.images": 2}
 
     user_agent = (
@@ -19,7 +25,8 @@ class Config:
 
     dcap = dict(DesiredCapabilities.PHANTOMJS)
     dcap["phantomjs.page.settings.userAgent"] = user_agent
-    service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any','--load-images=no']
+    service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any',
+                  '--load-images=no', '--log-path=logs\\']
     output_dir = 'output/'
     # os_type = 'Windows'
 
